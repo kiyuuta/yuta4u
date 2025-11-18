@@ -1,0 +1,76 @@
+body {
+  background-image: url('../gambar/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  backdrop-filter: blur(4px);
+  color: #fff;
+}
+
+.overlay {
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.6) !important;
+}
+
+h1 {
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+p, h5 {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.45);
+  text-align: center;
+  font-style: italic;
+}
+
+.content-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nav-link.active {
+  font-weight: 600;
+  color: #fff !important;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.card img {
+  object-fit: cover;
+  height: 180px;
+}
+
+.accordion-item {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.accordion-button {
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+}
+
+.accordion-button:not(.collapsed) {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.accordion-body {
+  color: #fff;
+}

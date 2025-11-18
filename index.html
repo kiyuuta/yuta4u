@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 2 - Lockscreen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('gambar/background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      backdrop-filter: blur(4px);
+    }
+    .overlay {
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.35), rgba(0,0,0,0.6));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-transparent { 
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+          <div class="card card-transparent p-4 text-center">
+            <img src="gambar/hsricon.png" alt="Logo Yuta" style="width:84px;height:auto" class="mb-3 mx-auto d-block">
+            <h2 class="mb-2" style="color: #fff;">Welcome, Yuta</h2>
+            <p class="mb-3" style="color: #fff;">Masukkan kode untuk melanjutkan.</p>
+
+            <div class="input-group mb-3">
+              <input id="pinInput" type="password" class="form-control" placeholder="Masukkan Kode" aria-label="Kode">
+              <button id="unlockBtn" class="btn btn-primary">Enter</button>
+            </div>
+
+            <small class="d-block mt-3" style="color: #aaa;">Masukkan kode untuk melanjutkan.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const unlockBtn = document.getElementById('unlockBtn');
+    const pinInput = document.getElementById('pinInput');
+    const skipBtn = document.getElementById('skipBtn');
+
+    function unlock(){
+      const pin = (pinInput.value || '').trim();
+      if(pin === '' || pin === 'yuta2204'){
+        sessionStorage.setItem('unlocked', '1');
+        window.location.href = 'home.html';
+      } else {
+        pinInput.value = '';
+        pinInput.placeholder = 'Kode salah, coba lagi';
+      }
+    }
+
+    unlockBtn.addEventListener('click', unlock);
+    pinInput.addEventListener('keydown', e => { if(e.key === 'Enter') unlock(); });
+    skipBtn.addEventListener('click', () => {
+      sessionStorage.setItem('unlocked', '1');
+      window.location.href = 'home.html';
+    });
+
+    // Jika sudah unlock, langsung ke home
+    if(sessionStorage.getItem('unlocked')){
+      window.location.href = 'home.html';
+    }
+  </script>
+</body>
+</html>
